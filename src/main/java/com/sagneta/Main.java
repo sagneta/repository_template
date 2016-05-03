@@ -1,5 +1,5 @@
 /*  Copyright (c) 2016
- *  by Stephen Agneta., Boston, MA
+ *  by Stephen Agneta, Boston, MA
  *
  *  This software is furnished under a license and may be used only in
  *  accordance with the terms of such license.  This software may not be
