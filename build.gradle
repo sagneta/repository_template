@@ -15,11 +15,17 @@ repositories {
 
 defaultTasks 'all'
 
+// Kinda silly. Remove war file.
+task removeWar(type: Delete)  {
+  delete('./build/libs/repository_template.war')
+}
+
 
 // Makes emacs projects easier to manage. We used to have all targets on makefiles.
 task all() {
-     dependsOn  jar, compileTestJava, findbugsMain, findbugsTest, test
+     dependsOn  jar, compileTestJava, findbugsMain, findbugsTest, test, removeWar
 }
+
 
 configurations {
     testManagedCompile { extendsFrom testCompile }
@@ -53,23 +59,9 @@ dependencies {
     compile 'org.apache.logging.log4j:log4j:2.5'
     compile 'org.slf4j:slf4j-log4j12:1.7.21'
 
-    
-    //compile 'org.apache.logging.log4j:log4j:2.4.1'
-    //compile 'org.apache.directory.studio:org.slf4j.log4j12:1.7.2'
-    //compile 'org.lable.rfc3881.auditlogger.adapter:slf4j:1.3'
-
-    //compile  'log4j:log4j:1.2.17'
-    
-    //testCompile 'log4j:log4j:1.2.17'
-    //testCompile 'org.apache.directory.studio:org.slf4j.log4j12:1.7.2'
-    // testCompile 'org.apache.logging.log4j:log4j:2.4.1'
-    //testCompile 'org.lable.rfc3881.auditlogger.adapter:slf4j:1.3'
-
-    
     // Lombok
     compile 'org.projectlombok:lombok:1.16.6'
     testCompile 'org.projectlombok:lombok:1.16.6'
-
 
     
     /////////////////////////////////////////////////////////////////////////
